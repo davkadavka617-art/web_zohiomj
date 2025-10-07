@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Гишүүнчлэл - Sys&CoTech</title>
+<style>
+body {
+margin: 0;
+font-family: 'Poppins', Arial, sans-serif;
+background: radial-gradient(circle at top, #1e1e1e, #0f0f0f);
+color: #f5f5f5;
+overflow-x: hidden;
+}
+header {
+background: linear-gradient(90deg, #0f0f0f, #1a5b00);
+padding: 18px 30px;
+font-weight: bold;
+font-size: 22px;
+letter-spacing: 1px;
+color: #a3ff9e;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+h1 {
+text-align: center;
+margin-top: 50px;
+font-size: 32px;
+color: #a3ff9e;
+text-shadow: 0 0 8px #63ff8a;
+}
+
+.container {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 30px;
+margin: 60px auto;
+max-width: 1000px;
+padding: 0 20px;
+}
+.card {
+background: linear-gradient(145deg, #1e1e1e, #292929);
+border: 1px solid #63ff8a;
+border-radius: 15px;
+width: 230px;
+padding: 30px 25px;
+text-align: center;
+transition: all 0.3s ease;
+box-shadow: 0 0 10px rgba(99, 255, 138, 0.2);
+position: relative;
+overflow: hidden;
+}
+.card::before {
+content: '';
+position: absolute;
+top: -100%;
+left: -100%;
+width: 200%;
+height: 200%;
+background: linear-gradient(120deg, transparent, rgba(99,255,138,0.15), transparent);
+transition: 0.8s;
+}
+.card:hover::before {
+top: 100%;
+left: 100%;
+}
+.card:hover {
+transform: scale(1.05);
+box-shadow: 0 0 25px rgba(99, 255, 138, 0.4);}
+.card h2 {
+margin-bottom: 10px;
+color: #a3ff9e;
+font-size: 20px;
+}
+button {
+margin-top: 20px;
+padding: 10px 20px;
+border: none;
+border-radius: 8px;
+background: linear-gradient(90deg, #63ff8a, #32a852);
+font-weight: bold;
+color: #0f0f0f;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+button:hover {
+background: linear-gradient(90deg, #4de073, #1c7a3f);
+transform: translateY(-2px);
+box-shadow: 0 0 12px rgba(99, 255, 138, 0.6);
+color: #fff;
+}
+#popup {
+display: none;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%) scale(0.8);
+background: rgba(20, 20, 20, 0.95);
+border: none;
+border-radius: 0;
+color: white;
+padding: 25px 35px;
+font-size: 20px;
+text-align: center;
+z-index: 1000;
+opacity: 0;
+transition: all 0.4s ease;
+box-shadow: 0 0 20px rgba(99, 255, 138, 0.3);
+}
+#popup.show {
+display: block;
+opacity: 1;
+transform: translate(-50%, -50%) scale(1);
+}
+footer {
+text-align: center;
+padding: 20px;
+color: #888;
+border-top: 1px solid #2e2e2e;
+margin-top: 50px;
+font-size: 14px;
+}
+</style>
+</head>
+<body>
+<header>Sys&CoTECH</header>
+<h1>М.Даваажаргалыг гишүүнээр авахыг</h1>
+<div class="container">
+<div class="card">
+<h2>зөвшөөрж байна</h2>
+<button onclick="showPopup('🤝 Хамтран ажиллахдаа таатай байна!')">Click</button>
+</div>
+<div class="card">
+<h2>татгалзав</h2>
+<button onclick="showPopup('😅 Ойлголоо, дараа жил уулзъя!')">Do not click</button>
+</div>
+</div>
+<div id="popup"></div>
+<footer>
+Sys&CoTech идэвхтэн бус гишүүн Даваажаргалын эрхээр хамгаалагдав.
+</footer>
+<script>
+function showPopup(text) {
+const popup = document.getElementById('popup');
+popup.textContent = text;
+popup.classList.add('show');
+setTimeout(() => {
+popup.classList.remove('show');
+}, 2500);
+}
+</script>
+</body>
+</html>
